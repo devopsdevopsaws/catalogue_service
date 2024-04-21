@@ -14,11 +14,15 @@ pipeline {
             }
         }
         //sonar-scanner command expect sonar-project.properties should be available
-        // stage('Sonar Scan') {
-        //     steps {
-        //         echo "Sonar scan done"
-        //     }
-        // }
+        stage('Sonar Scan') {
+            steps {
+                echo "Sonar scan done"
+                sh '''
+                ls -ltr
+                sonar-scanner
+                '''
+            }
+        }
 
     }
 
